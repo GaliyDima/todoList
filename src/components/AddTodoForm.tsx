@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../features/todos/todosSlice";
+import Input from "./Input/Input";
+import Button from "./Button/Button";
 
 const AddTodoForm: React.FC = () => {
   const dispatch = useDispatch();
@@ -15,13 +17,8 @@ const AddTodoForm: React.FC = () => {
 
   return (
     <div style={{ margin: "20px" }}>
-      <input
-        type="text"
-        value={newTodo}
-        onChange={(e) => setNewTodo(e.target.value)}
-        style={{ marginRight: "10px" }}
-      />
-      <button onClick={handleAddTodo}>Add item</button>
+      <Input newTodo={newTodo} setNewTodo={setNewTodo} />
+      <Button onClick={handleAddTodo} title={"Add item"} />
     </div>
   );
 };
